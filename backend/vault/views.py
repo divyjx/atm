@@ -22,6 +22,23 @@ class UserViewSet(ModelViewSet):
             return Response(serializer.data)
         return Response(serializer.errors) 
 
+class UserCreate(APIView):
+    def post(self, request):
+        serializer = UserSerializer(data = request.data)
+        if (serializer.is_valid(raise_exception = True)):
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors) 
+
+class UserRead(APIView):
+    def post(self, request, pk):
+        try:
+            userObj = User.objects.get(pk = pk)
+        except:
+            return Response({"error":"User Not Present"})
+        serializer = UserSerializer(userObj)
+        return Response(serializer.data)
+
 class UserUpdate(APIView):
     def post(self, request, pk):
         try:

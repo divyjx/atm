@@ -3,7 +3,7 @@ import styles from "./css/home.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 export default function Login() {
-  const [email, setEmail] = useState('')
+  const [card, setCard] = useState('')
   const [pass, setPass] = useState('')
   const navigate = useNavigate()
   const handleSummit = (e) => {
@@ -14,7 +14,7 @@ export default function Login() {
     const name = ''
     const balance = ''
     const userDetails = {
-      email: email,
+      card: card,
       password: pass,
       name : name,
       balance : balance
@@ -28,12 +28,12 @@ export default function Login() {
       <form className={styles.container} onSubmit={handleSummit}>
         <label>
           <input
-            name="email"
-            maxLength={50}
-            minLength={3}
-            placeholder="Email"
-            type="email"
-            onChange={(e) => setEmail(e.target.value)}
+            name="card"
+            maxLength={16}
+            minLength={16}
+            placeholder="Card"
+            // type="number"
+            onChange={(e) => setCard(e.target.value)}
           />
         </label>
         <label>

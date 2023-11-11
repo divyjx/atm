@@ -6,7 +6,7 @@ export default function User() {
   const location = useLocation();
   const navigate = useNavigate();
   const userDetails = location.state?.userDetails
-  const [email, setEmail] = useState('');
+  const [card, setCard] = useState('');
   const [name, setName] = useState('');
   const [balance, setBalance] = useState(0);
 
@@ -16,7 +16,7 @@ export default function User() {
       navigate("/", {replace:true});
     } else {
       // Set user-related information from userDetails
-      setEmail(userDetails.email);
+      setCard(userDetails.card);
       setName(userDetails.name); // Assuming userDetails contains the name field
       setBalance(userDetails.balance); // Assuming userDetails contains the balance field
     }
@@ -27,14 +27,14 @@ export default function User() {
     // Clear user-related information
     console.log(userDetails)
     setBalance(0);
-    setEmail('');
+    setCard('');
     setName('');
     navigate('/', {replace:true});
   };
 
   const handleCheck = (e) => {
     e.preventDefault();
-    console.log(`User Email: ${email}`);
+    console.log(`User Card: ${card}`);
     console.log(`User Name: ${name}`);
     console.log(`Balance: ${balance}`);
   };
@@ -42,9 +42,9 @@ export default function User() {
   return (
     <div className={styles.container}>
       <h2>User Details</h2>
-      {email ? (
+      {card ? (
       <div className={styles.container}>
-        <p>Email: {email}</p>
+        <p>Card: {card}</p>
         <p>Name: {name}</p>
         <p>Balance: {balance}</p>
         <button>Deposit</button>

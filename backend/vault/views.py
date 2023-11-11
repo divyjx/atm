@@ -9,7 +9,7 @@ class UserViewSet(ModelViewSet):
     serializer_class = UserSerializer
     def get(self, request):
         output = [{'username':output.username,
-                   'email':output.email,
+                   'card':output.card,
                    'password':output.password,
                    'balance': output.balance}
                   for output in User.objects.all()]

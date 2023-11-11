@@ -4,7 +4,7 @@ import styles from "./css/home.module.css";
 import { useState } from "react";
 
 export default function Signin() {
-  const [email, setEmail] = useState('')
+  const [card, setCard] = useState('')
   const [pass, setPass] = useState('')
   const [name, setName] = useState('')
   const [balance, setBalance] = useState(0)
@@ -14,7 +14,7 @@ export default function Signin() {
 
     // TODO : Validation
     const userDetails = {
-        email: email,
+        card: card,
         password: pass,
         name : name,
         balance : balance
@@ -28,12 +28,12 @@ export default function Signin() {
       <form className={styles.container} onSubmit={handleSummit}>
         <label>
           <input
-            name="email"
-            maxLength={50}
-            minLength={3}
-            placeholder="Email"
-            type="email"
-            onChange={(e)=>setEmail(e.target.value)}
+            name="card"
+            maxLength={16}
+            minLength={16}
+            placeholder="Card"
+            // type="number"
+            onChange={(e)=>setCard(e.target.value)}
           />
         </label>
         <label>

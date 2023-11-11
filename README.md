@@ -29,3 +29,14 @@ python manage.py runserver
 # open the server url in browser
 http://127.0.0.1:8000/
 ```
+
+For viewing all data create djangosuperuser
+```bash
+python manage.py createsuperuser
+# enter username and password
+
+# go to admin route on server url 
+http://127.0.0.1:8000/admin
+
+# Note : users are present under the Vault section 
+```

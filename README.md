@@ -25,4 +25,7 @@ python manage.py migrate
 
 # Run the development server
 python manage.py runserver
+
+# open the server url in browser
+http://127.0.0.1:8000/
 ```

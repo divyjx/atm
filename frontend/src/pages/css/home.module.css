@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    margin: auto;
+    width: 100%;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.container input {
+    width: 300px;
+}   
+.container button {
+    width: 300px;
+}   

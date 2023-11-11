@@ -85,18 +85,19 @@ export default function Signin() {
             }}
           />
         </label>
-        <label>
+        {/* <label> */}
           <input
             type="number"
             name="balance"
             min={100}
+            max={10000}
             placeholder="Initail Deposit"
             onChange={(e) => {
               setBalance(e.target.value);
               setError("");
             }}
           />
-        </label>
+        {/* </label> */}
         <input type="submit" />
         <button onClick={() => navigate("/")}>Home</button>
       </form>

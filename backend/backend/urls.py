@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from vault.views import *
+from .views import *
 
 # from rest_framework.routers import DefaultRouter
 # router = DefaultRouter()
@@ -26,5 +27,7 @@ urlpatterns = [
     path('user/create/', UserCreate.as_view()),
     path('user/read/<str:pk>', UserRead.as_view()),
     path('user/update/<str:pk>', UserUpdate.as_view()),
-    path('user/delete/<str:pk>', UserDelete.as_view())
+    path('user/delete/<str:pk>', UserDelete.as_view()),
+    path('', index, name = 'index'),
+    path('<path:dummy>', index, name = 'index'),
 ]

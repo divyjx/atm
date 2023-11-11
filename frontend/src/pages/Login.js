@@ -71,8 +71,8 @@ export default function Login() {
         <input type="submit" />
       </form>
       <p>
-        new user?
-        <a href="signin">Signin</a>
+        new user ? {"  "}  
+        <button onClick={()=>{navigate('/signin')}} className={styles.nostyle}>Signin</button>
       </p>
       {error && 
         <div className={styles.login_error}>

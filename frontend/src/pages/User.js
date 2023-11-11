@@ -149,6 +149,7 @@ export default function User() {
               <input
                 onChange={(e) => {setTransAmount(e.target.value); setError('')}}
                 min={100}
+                max={10000}
                 type="number"
               />
               <input type="submit" />

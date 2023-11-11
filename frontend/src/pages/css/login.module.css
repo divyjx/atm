@@ -1,68 +1,80 @@
 .login {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    height: 90vh;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: space-around;
-    justify-content: flex-start;
-    align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  height: 90vh;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
 }
-  
-  
-  .login h2 {
-    color: #fff;
-  }
-  
-  .login form {
-    display: flex;
-    flex-direction: column;
 
-  }
+.login h2 {
+  color: #fff;
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login label {
+  margin-bottom: 10px;
+}
+
+.login input,
+button {
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #555;
+  background-color: #444;
+  color: #fff;
   
-  .login label {
-    margin-bottom: 10px;
-  }
-  
-  .login input, button {
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #555;
-    background-color: #444;
-    color: #fff;
-  }
-  
-  .login input[type="submit"], button {
-    background-color: #555;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .login input[type="submit"]:hover, button:hover {
-    background-color: #777;
-  }
-  
-  .login p {
-    margin-top: 15px;
-    color: #fff;
-  }
-  
-  .login a {
-    color: #3498db; /* Set a contrasting color for the link */
-  }
-  
-  .login_error {
-    background-color: #c0392b; /* Set a red background color for the error box */
-    color: #fff;
-    padding: 10px;
-    margin-top: 15px;
-    border-radius: 5px;
-  }
-  
-  .login_error p {
-    margin: 0;
-  }
-  
+}
+
+.login input[type="submit"],
+button {
+  background-color: #555;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover,
+button:hover {
+  background-color: #777;
+}
+
+.login p {
+  margin-top: 15px;
+  color: #fff;
+}
+
+.login a {
+  color: #3498db; /* Set a contrasting color for the link */
+}
+
+.login_error {
+  background-color: #c0392b; /* Set a red background color for the error box */
+  color: #fff;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+.login_error p {
+  margin: 0;
+}
+
+.nostyle {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
+  color: rgb(80, 80, 252);
+}

@@ -1,28 +1,53 @@
 import React from "react";
-import styles from "./css/home.module.css";
+import styles from "./css/login.module.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { env } from "../config";
 export default function Login() {
-  const [card, setCard] = useState('')
-  const [pass, setPass] = useState('')
-  const navigate = useNavigate()
-  const handleSummit = (e) => {
+  const [card, setCard] = useState("");
+  const [pass, setPass] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleSummit = async (e) => {
     e.preventDefault();
 
     // TODO: Validation
-
-    const name = ''
-    const balance = ''
-    const userDetails = {
-      card: card,
-      password: pass,
-      name : name,
-      balance : balance
-    };
-    navigate("/user", { state: { userDetails: userDetails} })
-  }
+    let name = "";
+    let balance = "";
+    try {
+      const response = await axios.post(env.API_HOST + "/read/" + card);
+      // console.log(response.data.card)
+      if (response.data.card !== card){
+        setError("Card number not present")
+        return;
+      }
+      if (response.data.password === pass) {
+        name = response.data.username;
+        balance = response.data.balance;
+        setError("");
+      } else {
+        setError("Invalid Password");
+        return;
+      }
+    } catch (error) {
+      setError("Invalid Card Number");
+      return;
+    }
+    if (error === "") {
+      const userDetails = {
+        card: card,
+        password: pass,
+        name: name,
+        balance: balance,
+      };
+      console.log(userDetails);
+      navigate("/user", { state: { userDetails: userDetails } });
+    }
+  };
   return (
-    <div className={styles.container}>
+    <div className={styles.login}>
       <h2>Enter Login Details</h2>
 
       <form className={styles.container} onSubmit={handleSummit}>
@@ -30,10 +55,8 @@ export default function Login() {
           <input
             name="card"
             maxLength={16}
-            minLength={16}
             placeholder="Card"
-            // type="number"
-            onChange={(e) => setCard(e.target.value)}
+            onChange={(e) => {setCard(e.target.value); setError("")}}
           />
         </label>
         <label>
@@ -41,9 +64,8 @@ export default function Login() {
             type="password"
             name="password"
             maxLength={50}
-            minLength={8}
             placeholder="Password"
-            onChange={(e) => setPass(e.target.value)}
+            onChange={(e) => {setPass(e.target.value); setError("")}}
           />
         </label>
         <input type="submit" />
@@ -52,6 +74,12 @@ export default function Login() {
         new user?
         <a href="signin">Signin</a>
       </p>
+      {error && 
+        <div className={styles.login_error}>
+          {/* <p> Error Message: </p> */}
+          <p>{error}</p>
+        </div>
+      }
     </div>
   );
 }

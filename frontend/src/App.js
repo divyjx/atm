@@ -4,10 +4,8 @@ import Signin from "./pages/Signin";
 import User from "./pages/User";
 import NavBar from "./components/navBar";
 import Home from "./pages/Home";
-// import { useState, useEffect } from "react";
 
 function App() {
-  // const [userDetails, setUserDetails] = useState(null);
   return (
     <div className="App">
       <BrowserRouter>

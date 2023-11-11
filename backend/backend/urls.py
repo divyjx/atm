@@ -23,7 +23,7 @@ from vault.views import *
 # router.register(r'user', UserViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user/create', UserCreate.as_view()),
+    path('user/create/', UserCreate.as_view()),
     path('user/read/<str:pk>', UserRead.as_view()),
     path('user/update/<str:pk>', UserUpdate.as_view()),
     path('user/delete/<str:pk>', UserDelete.as_view())
